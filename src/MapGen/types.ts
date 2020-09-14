@@ -1,0 +1,5 @@
+export enum SYMMETRY {
+  VERTICAL,
+  HORIZONTAL,
+  DIAGONAL,
+}

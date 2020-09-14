@@ -3,7 +3,7 @@ import Match = Dimension.Match;
 import Tournament = Dimension.Tournament;
 import { LuxMatchResults, LuxMatchState } from './types';
 import { DEFAULT_CONFIGS } from './defaults';
-import { generateGame } from './Game/gen';
+import { generateGame } from './MapGen';
 import {
   Action,
   SpawnWorkerAction,
@@ -44,7 +44,7 @@ export class LuxDesign extends Dimension.Design {
     if (state.configs.seed !== undefined) {
       state.rng = seedrandom(`${state.configs.seed}`);
     }
-    state.game = generateGame(state.configs);
+    state.game = generateGame(state.configs, state.rng);
 
     match.log.info(state.configs);
     // store the state into the match so it can be used again in `update` and `getResults`
